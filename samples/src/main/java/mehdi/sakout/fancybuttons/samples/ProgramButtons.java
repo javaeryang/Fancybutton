@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 
@@ -68,6 +70,76 @@ public class ProgramButtons extends AppCompatActivity {
         container.addView(installBtn, layoutParams);
         container.addView(signupBtn);
 
+        addMyButton(container);
+
+        addMyButton(container, "#FF9933" , "#03a9f4", "#FFFF00", "#990033", "#CCCCCC");
+        addMyButton(container, "#99CC33" , "#03a9f4", "#FFFF00", "#990033", "#CCCCCC");
+        addMyButton(container, "#CC6699" , "#03a9f4", "#FFFF00", "#990033", "#CCCCCC");
+        addMyButton(container, "#FF9966" , "#03a9f4", "#FFFF00", "#990033", "#CCCCCC");
+        addMyButton(container, "#FF0033" , "#03a9f4", "#FFFF00", "#990033", "#CCCCCC");
+        addMyButton(container, "#FFCCCC" , "#03a9f4", "#FFFF00", "#990033", "#CCCCCC");
+    }
+
+    private void addMyButton(LinearLayout linearLayout){
+        FancyButton fancyButton = new FancyButton(this);
+        fancyButton.setBackgroundColor(Color.parseColor("#03a9f4"));
+        fancyButton.setBorderColor(Color.parseColor("#FFFE9C01"));
+        fancyButton.setFocusBackgroundColor(Color.parseColor("#FFFF00"));
+        fancyButton.setRadius(60);
+        fancyButton.setTextSize(18);
+        fancyButton.setTextColor(Color.WHITE);
+        fancyButton.setDisableBackgroundColor(Color.GRAY);
+        fancyButton.setDisableTextColor(Color.parseColor("#011ffe"));
+        fancyButton.setText("测试");
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(10, 10, 10, 10);
+        fancyButton.setPadding(30, 30, 30, 30);
+        fancyButton.setBorderWidth(1);
+        fancyButton.setLayoutParams(params);
+
+        fancyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ProgramButtons.this, "点击", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        linearLayout.addView(fancyButton);
+    }
+
+    private void addMyButton(LinearLayout linearLayout, String defaultColor, String borderColor, String foucusBackgroundColor, String disableBackColor, String disableTextColor){
+        FancyButton fancyButton = new FancyButton(this);
+        fancyButton.setBackgroundColor(Color.parseColor(defaultColor));
+        fancyButton.setBorderColor(Color.parseColor(borderColor));
+        fancyButton.setFocusBackgroundColor(Color.parseColor(foucusBackgroundColor));
+        fancyButton.setRadius(60);
+        fancyButton.setTextSize(18);
+        fancyButton.setTextColor(Color.WHITE);
+        fancyButton.setDisableBackgroundColor(Color.parseColor(disableBackColor));
+        fancyButton.setDisableTextColor(Color.parseColor(disableTextColor));
+        fancyButton.setText("测试");
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(10, 10, 10, 10);
+        fancyButton.setPadding(30, 30, 30, 30);
+        fancyButton.setBorderWidth(1);
+        fancyButton.setLayoutParams(params);
+
+        fancyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ProgramButtons.this, "点击", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        linearLayout.addView(fancyButton);
     }
 
 
